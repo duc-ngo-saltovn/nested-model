@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  mysql:
+    image: 'mysql:8.0.32'
+    container_name: 'nestjs_mysql'
+    ports:
+      - '33061:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: '123123'
+      MYSQL_DATABASE: nestjs
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: '123123'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    volumes:
+      - ./data/db:/var/lib/mysql
+      - ./.docker/mysql/mysql.cnf:/etc/mysql/mysql.cnf
+    networks:
+      - nestjs
+
+  mongodb:
+    image: mongo:latest
+    container_name: 'nestjs_mongo'
+    environment:
+      - MONGODB_DATABASE="nestjs"
+    ports:
+      - 27017:27017
+
+networks:
+  nestjs:
+    driver: bridge
