@@ -23,11 +23,11 @@ import { MongooseModule } from '@nestjs/mongoose';
   //   UsersModule,
   //   CommentModule,
   // ],
-  imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/nestjs'),
-    CommentModule,
-  ],
+  // imports: [
+  //   MongooseModule.forRoot('mongodb://localhost:27017/nestjs'),
+  //   CommentModule,
+  // ],
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule { }
